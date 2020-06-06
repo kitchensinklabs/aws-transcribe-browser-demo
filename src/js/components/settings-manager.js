@@ -2,8 +2,11 @@ import { createDisplayElements } from './helper';
 
 const defaults = {
   language: 'en-US',
-  region: 'eu-west-1',
+  region: 'us-west-2',
   sampleRate: 16000,
+  specialty: '',
+  type: '',
+  vocabularyName: '',
 };
 
 class SettingsManager {
@@ -56,6 +59,21 @@ class SettingsManager {
         name: 'Sample Rate',
         id: 'sampleRate',
         value: defaults.sampleRate,
+      },
+      {
+        name: 'Specialty',
+        id: 'specialty',
+        value: defaults.specialty,
+      },
+      {
+        name: 'Type',
+        id: 'type',
+        value: defaults.type,
+      },
+      {
+        name: 'Vocabulary Name',
+        id: 'vocabularyName',
+        value: defaults.vocabularyName,
       },
     ]);
 

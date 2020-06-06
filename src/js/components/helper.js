@@ -70,10 +70,16 @@ export function getTranscribeConfig() {
   const languageElem = document.getElementById('language');
   const regionElem = document.getElementById('region');
   const sampleRateElem = document.getElementById('sampleRate');
+  const specialtyElem = document.getElementById('specialty');
+  const typeElem = document.getElementById('type');
+  const vocabularyNameElem = document.getElementById('vocabularyName');
 
   return {
     languageCode: languageElem.value,
     region: regionElem.value,
     sampleRate: sampleRateElem.value,
+    specialty: specialtyElem.value,
+    type: typeElem.value,
+    vocabularyName: vocabularyNameElem.value,
   };
 }

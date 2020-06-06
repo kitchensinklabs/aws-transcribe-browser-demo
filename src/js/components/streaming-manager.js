@@ -3,7 +3,7 @@ import { downsampleBuffer, getAwsConfig, getTranscribeConfig } from './helper';
 
 const bufferSize = 8192;
 
-const constraints = {
+let constraints = {
   audio: true,
   video: false,
 };
@@ -157,6 +157,12 @@ class StreamingManager {
       }
 
       // create a reference to the stream so we can close it after
+      let devices = await navigator.mediaDevices.enumerateDevices();
+      let soundflower = devices.find(device => device.label == "Soundflower (2ch)");
+      if (soundflower) {
+        console.log("found soundflower device!");
+        constraints = { audio: { deviceId: { exact: soundflower.deviceId } } };
+      }
       this.globalStream = await navigator.mediaDevices.getUserMedia(
         constraints
       );
